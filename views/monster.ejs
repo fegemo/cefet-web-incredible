@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Monstro</title>
+  <link rel="stylesheet" href="/css-dist/style.css">
+  <style>
+    <% if (dados.corCeu1 && dados.corCeu2) { %>
+    #sky {
+      background-image: linear-gradient(to bottom, <%- dados.corCeu1 %>, <%- dados.corCeu2 %>);
+    }
+    <% } %>
+  </style>
+  <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body>
+  <section id="sky">
+    <header>
+      <h1 class="title">
+        O Incrível <span class="emphatic">Monstro Verde</span>
+        <% if (dados.nome) { %>
+          <span class="non-important">(<%-dados.nome%>)</span>
+        <% }%>
+      </h1>
+      <h2 class="subtitle">
+        que Come Pedras e mora debaixo da Terra
+      </h2>
+    </header>
+
+    <div id="monster-container">
+      <div id="monster"></div>
+    </div>
+    <div id="rocks-container">
+      <% if (dados.num_pedras) {
+        var tipos = ['marroada', 'ametista', 'topazio', 'espinela'],
+            tipo = dados.tipo_pedras || 'marroada',
+            tamanho = dados.tam_pedras || 3;
+
+        for (var i = 0; i < dados.num_pedras; i++) {
+          if (dados.tipo_pedras_sortidas === 'sim') {
+            tipo = tipos[Math.floor(Math.random()*tipos.length) % tipos.length];
+          }
+          %>
+          <img class="rock pixelated" src="/img/pedra<%-((i%4)+1) + '-' + tipo%>.png" style="left: <%-(Math.random()*98)%>%; transform: scale(<%-(tamanho/3)%>)">
+          <%
+        }
+      } %>
+    </div>
+  </section>
+
+  <section id="earth">
+    <div>
+      <button id="toggle">Dar as pedras</button>
+    </div>
+    <section id="earth-get">
+      <div class="anim-dashes get <% if (metodo === 'GET') { %>on<% } %>"><h3>Método GET</h3></div>
+      <% if (metodo === 'GET') { %>
+      <div class="data-table">
+        <% if (cru) { %>
+        <div class="data-entry data-header">
+          <span class="data-name">A <em>querystring</em></span><span class="data-value">?<%- cru %></span>
+        </div>
+        <% } %>
+        <% for (var i = 0; i < lista.length; i++) { %>
+        <div class="data-entry">
+          <span class="data-name"><%-lista[i].nome %></span><span class="data-value"><%-lista[i].valor %></span>
+        </div>
+        <% } %>
+      </div>
+      <% } %>
+    </section>
+    <section id="earth-post">
+      <div class="anim-dashes post <% if (metodo === 'POST') { %>on<% } %>"><h3>Método POST</h3></div>
+      <% if (metodo === 'POST') { %>
+      <div class="data-table">
+        <% if (cru) { %>
+        <div class="data-entry data-header">
+          <span class="data-name">O corpo</span><span class="data-value"><%- cru %></span>
+        </div>
+        <% } %>
+        <% for (var i = 0; i < lista.length; i++) { %>
+        <div class="data-entry">
+          <span class="data-name"><%-lista[i].nome %></span><span class="data-value"><%-lista[i].valor %></span>
+        </div>
+        <% } %>
+      </div>
+      <% } %>
+    </section>
+  </section>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="/js/feed.js"></script>
+</body>
+</html>

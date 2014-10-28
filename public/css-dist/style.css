@@ -1,0 +1,259 @@
+@import "../fonts/stylesheet.css";
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Calibri', 'Verdana', sans-serif;
+}
+
+body.erro {
+  -webkit-animation: estica 1s ease-in-out alternate infinite;
+          animation: estica 1s ease-in-out alternate infinite;
+  overflow: hidden;
+}
+
+@-webkit-keyframes rotacao {
+  from { -webkit-transform: rotateZ(0); transform: rotateZ(0); }
+  to { -webkit-transform: rotateZ(360deg); transform: rotateZ(360deg); }
+}
+
+@keyframes rotacao {
+  from { -webkit-transform: rotateZ(0); transform: rotateZ(0); }
+  to { -webkit-transform: rotateZ(360deg); transform: rotateZ(360deg); }
+}
+@-webkit-keyframes estica {
+  from { -webkit-transform: scaleX(1); transform: scaleX(1); }
+  to   { -webkit-transform: scaleX(1.1); transform: scaleX(1.1); }
+}
+@keyframes estica {
+  from { -webkit-transform: scaleX(1); transform: scaleX(1); }
+  to   { -webkit-transform: scaleX(1.1); transform: scaleX(1.1); }
+}
+
+.title,
+.subtitle {
+  font-family: 'Ravie', serif;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+  text-shadow: 2px 2px rgb(100, 100, 255);
+}
+
+.title .emphatic {
+  color: #00FF21;
+}
+
+.title .non-important {
+  color: rgba(255, 100, 100, .8);
+}
+
+.subtitle {
+  color: #f0f0f0;
+}
+
+#sky {
+  position: relative; /* for the rocks-container */
+  background-image: -webkit-linear-gradient(top, #6481E5, #8AB3E2);
+  background-image: linear-gradient(to bottom, #6481E5, #8AB3E2);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  padding-top: 20px;
+}
+
+#monster-container {
+  position: relative;
+  bottom: -12px;
+  -webkit-animation: dig-out 6s;
+          animation: dig-out 6s;
+}
+
+#rocks-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+}
+
+.rock {
+  position: absolute;
+  bottom: -4px;
+}
+
+.pixelated {
+  image-rendering:optimizeSpeed;             /* Legal fallback */
+  image-rendering:-moz-crisp-edges;          /* Firefox        */
+  image-rendering:-o-crisp-edges;            /* Opera          */
+  image-rendering:-webkit-optimize-contrast; /* Safari         */
+  image-rendering:optimize-contrast;         /* CSS3 Proposed  */
+  image-rendering:crisp-edges;               /* CSS4 Proposed  */
+  image-rendering:pixelated;                 /* CSS4 Proposed  */
+  -ms-interpolation-mode:nearest-neighbor;   /* IE8+           */
+}
+
+@-webkit-keyframes dig-out {
+  from { bottom: -140px; }
+  to   { bottom: -12px; }
+}
+
+@keyframes dig-out {
+  from { bottom: -140px; }
+  to   { bottom: -12px; }
+}
+
+#monster {
+  width: 120px;
+  height: 160px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url('../img/terrivel-standing-big.png');
+  -webkit-animation: standing 1.5s steps(2) infinite;
+          animation: standing 1.5s steps(2) infinite;
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+}
+
+#monster.eating {
+  background-image: url('../img/terrivel-eating-big.png');
+  -webkit-animation: eating .3s steps(3) infinite;
+          animation: eating .3s steps(3) infinite;
+}
+
+@-webkit-keyframes eating {
+  100% { background-position: -360px 0; }
+}
+
+@keyframes eating {
+  100% { background-position: -360px 0; }
+}
+
+@-webkit-keyframes standing {
+  100% { background-position: -240px 0; }
+}
+
+@keyframes standing {
+  100% { background-position: -240px 0; }
+}
+
+
+#earth {
+  position: relative;
+  top: -5px;
+  height: 100%;
+  padding-top: 30px;
+  background-image: url('../img/tiles-big.png');
+  background-repeat: repeat-x;
+  text-align: center;
+}
+
+#toggle {
+  padding: .5em;
+  font-size: 1em;
+  border: 4px outset #444;
+}
+
+#toggle[disabled] {
+  border: 4px inset silver;
+}
+
+#earth-get,
+#earth-post {
+  float: left;
+  box-sizing: border-box;
+  margin-top: 50px;
+  width: 50%;
+  min-height: 300px;
+  padding: 20px;
+  border: 4px solid black;
+}
+
+#earth-get {
+  background-color: rgba(255, 0, 0, .2);
+  border-right-width: 2px;
+}
+
+#earth-post {
+  background-color: rgba(0, 0, 255, .2);
+  border-left-width: 2px;
+}
+
+.anim-dashes {
+  width: 140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2px;
+  border-radius: 5px;
+  background-image: -webkit-repeating-linear-gradient(45deg, transparent, transparent 10px, #ffffff 10px, #ffffff 20px);
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #ffffff 10px, #ffffff 20px);
+}
+
+.anim-dashes.on {
+  -webkit-animation: dashes 5s linear infinite;
+          animation: dashes 5s linear infinite;
+}
+
+.anim-dashes.get {
+    background-color: red;
+}
+
+.anim-dashes.post {
+  background-color: blue;
+}
+
+@-webkit-keyframes dashes {
+  from { background-position: 0     0; }
+  to   { background-position: 140px 0; }
+}
+
+@keyframes dashes {
+  from { background-position: 0     0; }
+  to   { background-position: 140px 0; }
+}
+
+.anim-dashes > h3 {
+  background-color: white;
+  margin: 0;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.data-table {
+  display: table;
+  margin: 20px auto;
+  color: white;
+  font-family: monospace;
+  font-size: 14px;
+  border-collapse: collapse;
+}
+
+.data-entry {
+  display: table-row;
+}
+
+.data-header {
+  border-bottom: 1px dashed white;
+}
+
+.data-name,
+.data-value {
+  display: table-cell;
+  padding: 6px;
+  word-break: break-word;
+}
+
+.data-name {
+  text-align: right;
+}
+
+.data-name:after {
+  content: ": ";
+}
+
+.data-value {
+  text-align: left;
+}
