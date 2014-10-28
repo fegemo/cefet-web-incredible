@@ -62,3 +62,9 @@ var button = document.getElementById('toggle'),
 
 
 button.onclick = feedRock;
+
+
+$(function() {
+  // preload image
+  new Image().src = 'img/terrivel-eating-big.png';
+});
