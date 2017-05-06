@@ -1,4 +1,4 @@
-#cefet-web-incredible
+# cefet-web-incredible
 
 Página para dar de comida àquele que é incrível, verde, come pedras e que mora
 debaixo da terrra.
@@ -35,6 +35,10 @@ Nesta aplicação Express.js (veja o `app.js` na raiz), há duas rotas:
     página inicial)
   - Este conjunto de rotas (na verdade, apenas 1) está descrito em
     `routes/index.js`
+
+
+A pasta `public` contém todos os arquivos estáticos (css, js do _front-end_,
+imagens).
 
 [monstro]: http://terrivel.herokuapp.com/monster
 [inicial]: http://terrivel.herokuapp.com/
