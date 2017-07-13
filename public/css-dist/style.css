@@ -1,7 +1,8 @@
 @import "../fonts/stylesheet.css";
 
 html {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   height: 100%;
 }
 
@@ -58,7 +59,7 @@ body.erro {
 
 #sky {
   position: relative; /* for the rocks-container */
-  background-image: -webkit-linear-gradient(top, #6481E5, #8AB3E2);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#6481E5), to(#8AB3E2));
   background-image: linear-gradient(to bottom, #6481E5, #8AB3E2);
   background-position: 0 0;
   background-repeat: no-repeat;
@@ -92,6 +93,7 @@ body.erro {
   image-rendering:-webkit-optimize-contrast; /* Safari         */
   image-rendering:optimize-contrast;         /* CSS3 Proposed  */
   image-rendering:crisp-edges;               /* CSS4 Proposed  */
+  image-rendering:-o-pixelated;
   image-rendering:pixelated;                 /* CSS4 Proposed  */
   -ms-interpolation-mode:nearest-neighbor;   /* IE8+           */
 }
@@ -164,7 +166,8 @@ body.erro {
 #earth-get,
 #earth-post {
   float: left;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-top: 50px;
   width: 50%;
   min-height: 300px;
@@ -188,7 +191,6 @@ body.erro {
   margin-right: auto;
   padding: 2px;
   border-radius: 5px;
-  background-image: -webkit-repeating-linear-gradient(45deg, transparent, transparent 10px, #ffffff 10px, #ffffff 20px);
   background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #ffffff 10px, #ffffff 20px);
 }
 

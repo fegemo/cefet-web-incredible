@@ -12,7 +12,7 @@ gulp.task('css', function() {
 gulp.task('develop', ['css', 'watch'], function () {
   livereload.listen();
   nodemon({
-    script: 'bin/www',
+    script: 'app',
     ext: 'js ejs',
   }).on('restart', function () {
     setTimeout(function () {
