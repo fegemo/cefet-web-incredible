@@ -71,6 +71,6 @@ $(function() {
   imgEl.style.position = 'absolute';
   imgEl.style.width = 0;
   imgEl.style.height = 0;
-  imgEl.src = 'img/terrivel-eating-big.png';
+  imgEl.src = '/img/terrivel-eating-big.png';
   document.body.appendChild(imgEl);
 });
