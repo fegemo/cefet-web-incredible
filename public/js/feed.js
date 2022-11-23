@@ -66,5 +66,11 @@ button.onclick = feedRock;
 
 $(function() {
   // preload image
-  new Image().src = 'img/terrivel-eating-big.png';
+  const imgEl = document.createElement('img');
+  imgEl.style.opacity = 0;
+  imgEl.style.position = 'absolute';
+  imgEl.style.width = 0;
+  imgEl.style.height = 0;
+  imgEl.src = 'img/terrivel-eating-big.png';
+  document.body.appendChild(imgEl);
 });

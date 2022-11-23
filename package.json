@@ -10,17 +10,11 @@
     "url": "https://github.com/fegemo/cefet-web-incredible"
   },
   "dependencies": {
-    "body-parser": "~1.17.2",
-    "ejs": "~2.5.6",
-    "express": "~4.15.3",
-    "morgan": "~1.8.2",
-    "underscore": "^1.8.3"
-  },
-  "devDependencies": {
-    "gulp": "~3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-livereload": "~3.8.1",
-    "gulp-nodemon": "~2.2.1"
+    "body-parser": "~1.20.1",
+    "ejs": "~3.1.8",
+    "express": "~4.18.2",
+    "morgan": "~1.10.0",
+    "underscore": "^1.13.6"
   },
   "engines": {
     "node": ">=8.1.4"

@@ -1,7 +1,8 @@
-<% include header %>
+<%- include('header.ejs') %>
 
-  <%- message %>
-  <%- error.status %>
-  <%- error.stack %>
+  <p>Erro durante a requisição. Veja os detalhes a seguir:</p>
+
+  <pre><%- message %> (código HTTP: <%- error.status %>)</pre>
+  <pre><code><%- error.stack %></code></pre>
   
-<% include footer %>
+<%- include('footer.ejs') %>
